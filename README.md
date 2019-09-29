@@ -3,20 +3,21 @@
 Used to create lambda functions prepared to scan buckets for viruses.
 Two functions are created, one namely to scan the uploads, and another that runs periodically to update the antivirus definitions.
 
-The deployed function is based on (bucket-antivirus-function)[https://github.com/upsidetravel/bucket-antivirus-function].
+The deployed function is based on [bucket-antivirus-function](https://github.com/upsidetravel/bucket-antivirus-function).
 All due credits to the original developers, as this project aims only to document the required infrastructure using terraform.
 
-## Prerequisites
+## Pre-requisites
 
 * git
 * docker
 * run docker commands without sudo
+* enough space and permissions to use `/tmp` to compile the lambda code
 
 ## Usage
 
 ```hcl
 module "antivirus" {
-  source = "../"
+  source = "gchamon/bucket-antivirus/aws"
 
   buckets-to-scan = [
     aws_s3_bucket.test.bucket
@@ -36,7 +37,7 @@ Developed using version `0.12.9`. Should work on `0.12.x`
 
 ## Examples
 
-AFTER MERGING INTO MASTER
+[Test file scan and deletion](https://github.com/gchamon/terraform-aws-bucket-antivirus/tree/master/examples/antivirus-with-custom-environment-variables) - Detailed instructions in the example's readme
 
 ## Input variables
 
