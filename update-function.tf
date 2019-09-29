@@ -14,7 +14,7 @@ resource "aws_lambda_function" "antivirus-update" {
       {
         AV_DEFINITION_S3_BUCKET = aws_s3_bucket.antivirus-definitions.bucket
       },
-      var.environment-variables.antivirus-update
+      var.updater-environment-variables
     )
   }
 }
