@@ -11,6 +11,7 @@ All due credits to the original developers, as this project aims only to documen
 * git
 * docker
 * run docker commands without sudo
+* enough space and permissions to use `/tmp` to compile the lambda code
 
 ## Usage
 
