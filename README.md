@@ -36,7 +36,7 @@ Developed using version `0.12.9`. Should work on `0.12.x`
 
 ## Examples
 
-AFTER MERGING INTO MASTER
+(Test file scan and deletion)[https://github.com/gchamon/terraform-aws-bucket-antivirus/tree/master/examples/antivirus-with-custom-environment-variables] - Detailed instructions in the example's readme
 
 ## Input variables
 
