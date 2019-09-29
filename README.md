@@ -17,7 +17,7 @@ All due credits to the original developers, as this project aims only to documen
 
 ```hcl
 module "antivirus" {
-  source = "../"
+  source = "gchamon/bucket-antivirus/aws"
 
   buckets-to-scan = [
     aws_s3_bucket.test.bucket
