@@ -7,7 +7,7 @@ resource "aws_s3_bucket" "test" {
 }
 
 module "antivirus" {
-  source = "../"
+  source = "../../"
 
   buckets-to-scan = [
     aws_s3_bucket.test.bucket
