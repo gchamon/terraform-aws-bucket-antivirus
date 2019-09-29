@@ -6,7 +6,7 @@ Two functions are created, one namely to scan the uploads, and another that runs
 The deployed function is based on [bucket-antivirus-function](https://github.com/upsidetravel/bucket-antivirus-function).
 All due credits to the original developers, as this project aims only to document the required infrastructure using terraform.
 
-## Prerequisites
+## Pre-requisites
 
 * git
 * docker
