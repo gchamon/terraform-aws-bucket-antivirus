@@ -3,7 +3,7 @@
 Used to create lambda functions prepared to scan buckets for viruses.
 Two functions are created, one namely to scan the uploads, and another that runs periodically to update the antivirus definitions.
 
-The deployed function is based on (bucket-antivirus-function)[https://github.com/upsidetravel/bucket-antivirus-function].
+The deployed function is based on [bucket-antivirus-function](https://github.com/upsidetravel/bucket-antivirus-function).
 All due credits to the original developers, as this project aims only to document the required infrastructure using terraform.
 
 ## Prerequisites
@@ -36,7 +36,7 @@ Developed using version `0.12.9`. Should work on `0.12.x`
 
 ## Examples
 
-(Test file scan and deletion)[https://github.com/gchamon/terraform-aws-bucket-antivirus/tree/master/examples/antivirus-with-custom-environment-variables] - Detailed instructions in the example's readme
+[Test file scan and deletion](https://github.com/gchamon/terraform-aws-bucket-antivirus/tree/master/examples/antivirus-with-custom-environment-variables) - Detailed instructions in the example's readme
 
 ## Input variables
 
