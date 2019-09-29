@@ -1,30 +1,28 @@
-module "antivirus-update" {
-  source = "spring-media/lambda/aws"
-
+resource "aws_lambda_function" "antivirus-update" {
   function_name = "bucket-antivirus-update"
   timeout       = 300
   memory_size   = 512
   runtime       = "python2.7"
   handler       = "update.lambda_handler"
+  role          = aws_iam_role.antivirus-update-role.arn
 
-  filename         = "${path.module}/.tmp/bucket-antivirus-function/build/lambda.zip"
-  source_code_hash = filebase64sha256("${path.module}/.tmp/bucket-antivirus-function/build/lambda.zip")
+  s3_bucket = aws_s3_bucket.antivirus-code.bucket
+  s3_key    = aws_s3_bucket_object.antivirus-code.key
 
-  event = {
-    type                = "cloudwatch-scheduled-event"
-    schedule_expression = "rate(3 hours)"
-  }
-
-  environment = {
+  environment {
     variables = merge(
       {
-        AV_DEFINITION_S3_BUCKET = aws_s3_bucket.antivirus-function.bucket
+        AV_DEFINITION_S3_BUCKET = aws_s3_bucket.antivirus-definitions.bucket
       },
       var.environment-variables.antivirus-update
     )
   }
+}
 
-  tags = {
-    _id = null_resource.build-antivirus-from-source.id
-  }
+module "trigger-antivirus-update-periodically" {
+  source = "./modules/periodic-lambda-trigger"
+
+  lambda-function = aws_lambda_function.antivirus-update
+  schedule-expression = "rate(3 hours)"
+  description = "Update antivirus definitions every 3 hours"
 }

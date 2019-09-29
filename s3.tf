@@ -11,7 +11,7 @@ resource "aws_s3_bucket_policy" "public-antivirus-definitions" {
 
   bucket = aws_s3_bucket.antivirus-definitions
 
-  policy = template_file(
+  policy = templatefile(
     "${path.module}/policies/bucket-antivirus-definitions.json.tmpl",
     { bucket-name = aws_s3_bucket.antivirus-definitions.bucket }
   )

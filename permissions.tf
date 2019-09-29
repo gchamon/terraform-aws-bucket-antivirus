@@ -3,7 +3,7 @@ resource "aws_iam_policy" "antivirus-update-policy" {
   path        = "/"
   description = "Allows antivirus lambda function to update its definitions"
 
-  policy = template_file(
+  policy = templatefile(
     "${path.module}/policies/bucket-antivirus-update.json.tmpl",
     { bucket-name = aws_s3_bucket.antivirus-definitions.bucket }
   )
