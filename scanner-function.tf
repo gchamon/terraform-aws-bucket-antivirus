@@ -29,7 +29,7 @@ resource "aws_lambda_permission" "trigger-by-s3" {
 }
 
 resource "aws_s3_bucket_notification" "staging" {
-  count = length(var.buckets-to-scan)
+  count  = length(var.buckets-to-scan)
   bucket = var.buckets-to-scan[count.index]
 
   lambda_function {

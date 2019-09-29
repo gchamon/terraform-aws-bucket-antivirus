@@ -12,7 +12,7 @@ resource "aws_s3_bucket_object" "antivirus-code" {
   depends_on = [null_resource.build-antivirus-from-source]
 
   bucket = aws_s3_bucket.antivirus-code.bucket
-  key = "lambda.zip"
+  key    = "lambda.zip"
 
   source = "/tmp/bucket-antivirus-function/build/lambda.zip"
 }
