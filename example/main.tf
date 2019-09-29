@@ -12,4 +12,8 @@ module "antivirus" {
   buckets-to-scan = [
     aws_s3_bucket.test.bucket
   ]
+
+  scanner-environment-variables = {
+    AV_DELETE_INFECTED_FILES = "True"
+  }
 }
