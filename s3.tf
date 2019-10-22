@@ -1,5 +1,11 @@
 resource "aws_s3_bucket" "antivirus-definitions" {
   bucket_prefix = "bucket-antivirus-definitions"
+  force_destroy = true
+}
+
+resource "aws_s3_bucket" "antivirus-code" {
+  bucket_prefix = "antivirus-code"
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_policy" "public-antivirus-definitions" {
