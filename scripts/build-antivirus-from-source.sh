@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-GIT_DIR=/tmp/bucket-antivirus-function
+GIT_DIR=~/tmp/bucket-antivirus-function
 AMZ_LINUX_VERSION=2
 
 mkdir -p $GIT_DIR
