@@ -23,6 +23,6 @@ module "trigger-antivirus-update-periodically" {
   source = "./modules/periodic-lambda-trigger"
 
   lambda-function     = aws_lambda_function.antivirus-update
-  schedule-expression = "rate(3 hours)"
-  description         = "Update antivirus definitions every 3 hours"
+  schedule-expression = "rate(${var.antivirus-update-rate}})"
+  description         = "Update antivirus definitions every ${var.antivirus-update-rate}"
 }
