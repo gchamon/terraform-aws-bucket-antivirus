@@ -2,6 +2,7 @@
 set -e
 
 GIT_DIR=/tmp/bucket-antivirus-function
+LAST_WORKING_COMMIT=90b1061
 AMZ_LINUX_VERSION=2
 
 rm -rf $GIT_DIR
@@ -9,6 +10,7 @@ rm -rf $GIT_DIR
 git clone https://github.com/upsidetravel/bucket-antivirus-function.git $GIT_DIR
 
 cd $GIT_DIR
+git checkout $LAST_WORKING_COMMIT
 
 container_dir=/opt/app
 

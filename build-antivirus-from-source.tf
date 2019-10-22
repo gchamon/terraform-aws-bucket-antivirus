@@ -10,10 +10,6 @@ resource "null_resource" "build-antivirus-from-source" {
   }
 }
 
-resource "aws_s3_bucket" "antivirus-code" {
-  bucket_prefix = "antivirus-code"
-}
-
 resource "aws_s3_bucket_object" "antivirus-code" {
   depends_on = [null_resource.build-antivirus-from-source]
 
