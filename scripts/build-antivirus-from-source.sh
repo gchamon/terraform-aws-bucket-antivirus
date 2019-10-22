@@ -4,8 +4,7 @@ set -e
 GIT_DIR=/tmp/bucket-antivirus-function
 AMZ_LINUX_VERSION=2
 
-mkdir -p $GIT_DIR
-rm -rf $GIT_DIR/*
+rm -rf $GIT_DIR
 
 git clone https://github.com/upsidetravel/bucket-antivirus-function.git $GIT_DIR
 
