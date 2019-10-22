@@ -15,6 +15,12 @@ variable "updater-environment-variables" {
   default     = {}
 }
 
+variable "antivirus-lambda-code" {
+  description = "Optional argument to provide precompiled zip file containing the lambda code, skipping the built in compilation process"
+  type        = string
+  default     = null
+}
+
 variable "allow-public-access" {
   description = "If true, contents of the bucket in which the antivirus definitions are saved will be public. Good for sharing the same definitions across multiple accounts."
   type        = bool

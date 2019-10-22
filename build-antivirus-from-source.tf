@@ -1,4 +1,10 @@
 resource "null_resource" "build-antivirus-from-source" {
+  count = (
+    var.antivirus-lambda-code == null
+    ? 1
+    : 0
+  )
+
   provisioner "local-exec" {
     command = "bash ${path.module}/scripts/build-antivirus-from-source.sh"
   }
@@ -14,5 +20,9 @@ resource "aws_s3_bucket_object" "antivirus-code" {
   bucket = aws_s3_bucket.antivirus-code.bucket
   key    = "lambda.zip"
 
-  source = "/tmp/bucket-antivirus-function/build/lambda.zip"
+  source = (
+    var.antivirus-lambda-code == null
+    ? "/tmp/bucket-antivirus-function/build/lambda.zip"
+    : pathexpand(var.antivirus-lambda-code)
+  )
 }

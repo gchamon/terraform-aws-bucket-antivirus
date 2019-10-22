@@ -46,6 +46,7 @@ Developed using version `0.12.9`. Should work on `0.12.x`
 | buckets-to-scan | List of bucket names to be scanned by the antivirus | list(string) | - | yes |
 | scanner-environment-variables | Custom environment variables for the scanner function | map(string) | {} | no |
 | updater-environment-variables | Custom environment variables for the definitions update function | map(string) | {} | no |
+| antivirus-lambda-code | Optional argument to provide precompiled zip file containing the lambda code, skipping the built in compilation process | string | null | no |
 | allow-public-access | If true, contents of the bucket in which the antivirus definitions are saved will be public. Good for sharing the same definitions across multiple accounts | bool | false | no |
 | antivirus-update-rate | Configures the antivirus update rate. Syntax is the same of cloudwatch rate schedule expression for rules | string | "3 hours" | no |
 
