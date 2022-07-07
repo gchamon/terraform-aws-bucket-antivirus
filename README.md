@@ -1,5 +1,7 @@
 # AWS S3 Bucket Antivirus Scanner
 
+**Deprecation notice**: the original bucket-antivirus-function repo has its own official cloudformation stack. It is advisable to use that instead. Sometime in the future I will rewrite this module to use the official stack directly, wrapping it in terraform, if it hasn't been done already.
+
 Used to create lambda functions prepared to scan buckets for viruses.
 Two functions are created, one namely to scan the uploads, and another that runs periodically to update the antivirus definitions.
 
